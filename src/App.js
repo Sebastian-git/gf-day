@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, Box } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { theme } from './theme';
+import Navigation from './components/Navigation';
+import Landing from './pages/Landing';
+import MemoryGallery from './pages/MemoryGallery';
+import Journey from './pages/Journey';
+import Future from './pages/Future';
+import KirbyCursor from './components/effects/KirbyCursor';
+import Snowfall from './components/effects/Snowfall';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Box>
+          <KirbyCursor />
+          <Snowfall />
+          <Navigation />
+          <Box sx={{ mt: 8, mb: 0 }}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/memories" element={<MemoryGallery />} />
+              <Route path="/journey" element={<Journey />} />
+              <Route path="/future" element={<Future />} />
+            </Routes>
+          </Box>
+        </Box>
+      </Router>
+    </ThemeProvider>
   );
 }
 
