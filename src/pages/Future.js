@@ -4,18 +4,18 @@ import { Box, Container, Grid, Typography, Card, CardMedia,
 
 const dreams = [
   {
-    image: '/images/tokyo.jpg',
-    title: 'Tokyo Adventures 🗼',
-    description: 'Exploring Harajuku and finding the cutest cafes together'
+    image: '/images/japan.jpg',
+    title: 'Japan',
+    description: 'Coming soon!!'
   },
   {
-    image: '/images/santorini.jpg',
-    title: 'Sunset in Santorini 🌅',
+    image: '/images/antartica.png',
+    title: 'Antartica',
     description: 'Watching the sun paint the sky in pastels'
   },
   {
-    image: '/images/northern-lights.jpg',
-    title: 'Northern Lights 🌌',
+    image: '/images/iceland.png',
+    title: 'Iceland',
     description: 'Chasing auroras in the Arctic'
   },
   // Add more future dreams here
@@ -26,7 +26,7 @@ const Future = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(145deg, #FFF3F3 0%, #B8E0F6 100%)',
+        background: 'linear-gradient(180deg, #8BACC2 0%, #A3C4D9 100%)',
         py: 8,
         position: 'relative',
       }}
@@ -69,25 +69,31 @@ const Future = () => {
           Every end is just a new beginning, and our story has so many chapters yet to be written...
         </Typography>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
           {dreams.map((dream, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Fade in timeout={500 + index * 200}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Fade in timeout={500 + index * 200} sx={{ width: '100%' }}>
                 <Card
                   sx={{
-                    height: '100%',
+                    height: '500px',
                     display: 'flex',
                     flexDirection: 'column',
+                    alignItems: 'center',
                     background: 'rgba(255,255,255,0.9)',
                     backdropFilter: 'blur(10px)',
                   }}
                 >
                   <CardMedia
                     component="img"
-                    height="200"
-                    image={dream.image}
+                    height="400px"
+                    image={process.env.PUBLIC_URL + dream.image}
                     alt={dream.title}
                     loading="lazy"
+                    sx={{
+                      width: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                    }}
                   />
                   <CardContent>
                     <Typography variant="h6" gutterBottom>

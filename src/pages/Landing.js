@@ -18,7 +18,7 @@ const Landing = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
+        minHeight: '90vh',
         position: 'relative',
         overflow: 'hidden',
         background: 'linear-gradient(180deg, #8BACC2 0%, #A3C4D9 100%)',
@@ -45,7 +45,7 @@ const Landing = () => {
         >
           <Box
             component="img"
-            src={process.env.PUBLIC_URL + "/images/penguin-seb.png"}
+            src={process.env.PUBLIC_URL + "/images/penguin-seb-1.png"}
             alt="Sebastian Penguin"
             sx={{
               width: '200px',
@@ -65,7 +65,7 @@ const Landing = () => {
         >
           <Box
             component="img"
-            src={process.env.PUBLIC_URL + "/images/penguin-tiff.png"}
+            src={process.env.PUBLIC_URL + "/images/penguin-tiff-1.png"}
             alt="Tiffany Penguin"
             sx={{
               width: '200px',
@@ -126,7 +126,7 @@ const Landing = () => {
             textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
           }}
         >
-          Hi Tiff (wifey) 🐧💙
+          Hi Tiff (wifey/pingupoopoo/baby) 🐧💙
         </Typography>
 
         <Typography

@@ -74,6 +74,24 @@ const memories = [
     date: 'Central Park - November 2, 2024',
     message: 'We already look like an old married couple in this, we should recreate it in 10 years! 🏞️',
   },
+  {
+    id: 13,
+    image: process.env.PUBLIC_URL + '/images/image13.jpg',
+    date: 'Francie Brooklyn - February 17, 2025',
+    message: 'Happy Valentines Day to the best girlfriend in the world, I love you so much! 💖',
+  },
+  {
+    id: 14,
+    image: process.env.PUBLIC_URL + '/images/image14.jpg',
+    date: 'Undie Run #3 - June 12, 2025',
+    message: 'I can\'t believe we\'ve done this 3 times now, I love you so much and I\'m so glad we can do this together! 🏃‍♀️',
+  },
+  {
+    id: 15,
+    image: process.env.PUBLIC_URL + '/images/image15.jpg',
+    date: '22 @Haidilao - June 12, 2025',
+    message: 'Happy 22nd birthday to the best girlfriend in the world, I love you so much! 🎉',
+  },
 ];
 
 const MemoryGallery = () => {
@@ -81,14 +99,43 @@ const MemoryGallery = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(145deg, #A3C4D9 0%, #8BACC2 100%)',
-        py: 8,
+        background: 'linear-gradient(180deg, #8BACC2 0%, #A3C4D9 100%)',
+        pb: 0,
+        pt: 4,
+        overflowX: 'hidden',
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative' }}>
+        {[1, 2, 3, 4].map((num) => (
+          <Box
+            key={num}
+            sx={{
+              position: 'absolute',
+              left: -180,
+              top: `${-5 + (num * 17)}%`,  // Starts at 15% and spaces by 20%
+              zIndex: 2,
+            }}
+          >
+            <Box
+              component="img"
+              src={process.env.PUBLIC_URL + `/images/penguin-seb-${num}.png`}
+              alt={`Penguin Seb ${num}`}
+              sx={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
+                animation: `${num % 2 === 0 ? 'float 3s ease-in-out infinite' : 'float 3s ease-in-out infinite 1.5s'}`,
+                transform: num % 2 === 0 ? 'rotate(-5deg)' : 'rotate(5deg)',
+                opacity: 0.9,
+              }}
+            />
+          </Box>
+        ))}
         <Typography
           variant="h1"
           sx={{
+            mt: 10,
             textAlign: 'center',
             mb: 6,
             color: 'text.primary',
@@ -96,7 +143,7 @@ const MemoryGallery = () => {
         >
           Our Memories 📸
         </Typography>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} sx={{ pb: 4 }}>
           {memories.map((memory) => (
             <Grid item xs={12} sm={6} md={4} key={memory.id}>
               <Fade in timeout={500}>
