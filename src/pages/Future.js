@@ -6,17 +6,17 @@ const dreams = [
   {
     image: '/images/japan.jpg',
     title: 'Japan',
-    description: 'Coming soon!!'
+    description: 'We\'ll explore every region of Japan'
   },
   {
     image: '/images/antartica.png',
     title: 'Antartica',
-    description: 'Watching the sun paint the sky in pastels'
+    description: 'Say hi to the penguins in Antartica'
   },
   {
     image: '/images/iceland.png',
     title: 'Iceland',
-    description: 'Chasing auroras in the Arctic'
+    description: 'Hike through the alps in Iceland'
   },
   // Add more future dreams here
 ];
@@ -27,7 +27,8 @@ const Future = () => {
       sx={{
         minHeight: '100vh',
         background: 'linear-gradient(180deg, #8BACC2 0%, #A3C4D9 100%)',
-        py: 8,
+        pt: 8,
+        pb: 0,
         position: 'relative',
       }}
     >
@@ -44,13 +45,14 @@ const Future = () => {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pb: 0 }}>
         <Typography
           variant="h1"
           sx={{
             textAlign: 'center',
             mb: 2,
             color: 'text.primary',
+            mt: 4,
           }}
         >
           Our Future Adventures ✨
@@ -66,13 +68,13 @@ const Future = () => {
             mx: 'auto',
           }}
         >
-          Every end is just a new beginning, and our story has so many chapters yet to be written...
+          Our story still has so many chapters yet to be written...
         </Typography>
 
         <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
           {dreams.map((dream, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Fade in timeout={500 + index * 200} sx={{ width: '100%' }}>
+              <Fade in timeout={500 + index * 200} sx={{ width: '350px' }}>
                 <Card
                   sx={{
                     height: '500px',
@@ -112,13 +114,15 @@ const Future = () => {
         <Box
           sx={{
             textAlign: 'center',
-            mt: 8,
+            mt: 5,
             p: 4,
             borderRadius: 4,
             background: 'rgba(255,255,255,0.7)',
             backdropFilter: 'blur(10px)',
             maxWidth: 600,
             mx: 'auto',
+            mb: "-50px",
+            marginBottom: '0 !important'
           }}
         >
           <Typography
@@ -129,7 +133,7 @@ const Future = () => {
               mb: 2,
             }}
           >
-            "One day, when the stars align and the time is right..."
+            When the stars align and the time is right
           </Typography>
           <Typography
             variant="body1"
@@ -137,7 +141,7 @@ const Future = () => {
               color: 'text.secondary',
             }}
           >
-            I hope to ask you something under a sky full of stars. 💍✨
+            I hope to ask you something important 💍✨
           </Typography>
         </Box>
       </Container>

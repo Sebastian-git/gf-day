@@ -95,6 +95,8 @@ const memories = [
 ];
 
 const MemoryGallery = () => {
+  const penguinCharacterVerticalStart = -10
+  const penguinCharacterVerticalSpace = 23
   return (
     <Box
       sx={{
@@ -106,13 +108,14 @@ const MemoryGallery = () => {
       }}
     >
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
+        {/* Left penguin column */}
         {[1, 2, 3, 4].map((num) => (
           <Box
-            key={num}
+            key={`seb-${num}`}
             sx={{
               position: 'absolute',
               left: -180,
-              top: `${-5 + (num * 17)}%`,  // Starts at 15% and spaces by 20%
+              top: `${penguinCharacterVerticalStart + (num * penguinCharacterVerticalSpace)}%`,
               zIndex: 2,
             }}
           >
@@ -132,10 +135,38 @@ const MemoryGallery = () => {
             />
           </Box>
         ))}
+
+        {/* Right penguin column */}
+        {[1, 2, 3, 4].map((num) => (
+          <Box
+            key={`tiff-${num}`}
+            sx={{
+              position: 'absolute',
+              right: -180,
+              top: `${penguinCharacterVerticalStart + (num * penguinCharacterVerticalSpace)}%`,
+              zIndex: 2,
+            }}
+          >
+            <Box
+              component="img"
+              src={process.env.PUBLIC_URL + `/images/penguin-tiff-${num}.png`}
+              alt={`Penguin Tiff ${num}`}
+              sx={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))',
+                animation: `${num % 2 === 0 ? 'float 3s ease-in-out infinite' : 'float 3s ease-in-out infinite 1.5s'}`,
+                transform: num % 2 === 0 ? 'rotate(5deg)' : 'rotate(-5deg)',
+                opacity: 0.9,
+              }}
+            />
+          </Box>
+        ))}
         <Typography
           variant="h1"
           sx={{
-            mt: 10,
+            mt: 8,
             textAlign: 'center',
             mb: 6,
             color: 'text.primary',
